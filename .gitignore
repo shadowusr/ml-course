@@ -1,5 +1,5 @@
 .DS_Store
-temp.r
+temp*.r
 
 # History files
 .Rhistory
