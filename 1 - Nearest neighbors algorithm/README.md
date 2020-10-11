@@ -33,7 +33,7 @@ Code can be found in the `knn-vs-kwnn.r` file. Comparing these two algorithms on
 ###### Example of the advantage of weighted k-NN over k-NN
 The main difference of the weighted k-NN algorithm from the plain k-NN is that the closer points are the more important they become. Because of this fact these algorithms can give different answers as depicted on the image below. The k-NN would put the grey dot in the blue class, but weighted k-NN would put it in the green one.
 
-Now let's write a s1mple python script for recognition of this points and generating the R code of the dataset: [source file](recognition.py).
+Now let's write a s1mple python script for recognition of these points and generating the R code of the dataset: [source file](recognition.py).
 
 | ![Result of a sample algorithm run](https://i.imgur.com/cWwo992.png) | ![Result of a sample script run](https://i.imgur.com/1oqZYBa.png) |
 | - | - |
