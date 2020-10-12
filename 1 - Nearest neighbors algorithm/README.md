@@ -40,6 +40,7 @@ Now let's write a s1mple python script for recognition of these points and gener
 | Image drawn in PS | Points recognized by our Python script |
 
 Generated dataset in R:
+
 ```R
 df = data.frame(x = double(), y = double(), class = character())
 
@@ -82,7 +83,8 @@ df <- rbind(df, data.frame(x = 2027, y = 1415, class = "class-1"))
 df <- rbind(df, data.frame(x = 2087, y = 889, class = "class-1"))
 df <- rbind(df, data.frame(x = 2189, y = 674, class = "class-1"))
 
-points = array(c(c(1164, 1232)), dim = c(1,2))```
+points = array(c(c(1164, 1232)), dim = c(1,2))
+```
 
 Now we are running a LOO CV on this dataset to find the best k for this dataset:
 ![LOO CV](https://i.imgur.com/qtG4te2.png)
