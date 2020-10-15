@@ -92,3 +92,5 @@ Now we are running a LOO CV on this dataset to find the best k for this dataset:
 The kwnn algorithm, on the contrary, assigns the dot to the red class (k = 6, q = 0.05):
 ![LOO CV](https://i.imgur.com/bhfkdKk.png)
 
+###### Algorithms comparison
+The comparison table is available on a [separate page](../metric-algorithms-comparison.md).
