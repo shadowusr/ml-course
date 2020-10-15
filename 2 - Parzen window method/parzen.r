@@ -72,8 +72,6 @@ parzen_loo <- function (dset, labels, kernel, hs) {
     for (j in 1:dsetLen) {
       cat("\rProcessing sample", j, "of", dsetLen)
       tmpRes <- parzen(dset[-j,], labels[-j], dset[j,], hs[i], kernel)
-      #print(tmpRes)
-      #print(paste(labels[j]))
       if (tmpRes != paste(labels[j])) {
         ans[i] <- ans[i] + 1
       }
