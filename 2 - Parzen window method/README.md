@@ -83,4 +83,4 @@ The quadric kernel (minErrors = 6):
 ![kv](https://i.imgur.com/RIgWdBf.png)
 
 ###### Algorithms comparison
-The comparison table is available on a [separate page](https://github.com/shadowusr/ml-course/blob/master/metric-algorithms-comparison.md).
+The comparison table is available on a [separate page](../metric-algorithms-comparison.md).
