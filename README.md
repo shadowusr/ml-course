@@ -9,5 +9,6 @@ A collection of basic machine learning algorithms taught to students of the CS m
 - [Nearest neighbors algorithms](1%20-%20Nearest%20neighbors%20algorithm)
 - [Parzen window](2%20-%20Parzen%20window%20method)
 - [Potential functions](3%20-%20Potential%20functions%20method)
+- [STOLP](4%20-%20Selection%20of%20reference%20objects)
 
 [Metric classifiers comparison table](metric-algorithms-comparison.md)
