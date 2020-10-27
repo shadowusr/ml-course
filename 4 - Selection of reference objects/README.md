@@ -9,7 +9,9 @@
 ### Assignment implementation
 ###### Margins
 The margin of an object relative to some dataset and classification algorithm denotes how typical this object is. The larger the value, the more usual the sample is. To compute the margin, the following formulae can be used:
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=M(x_i)=W_{y_i}(x_i,&space;X^l)-\max_{y\in&space;Y\backslash\{y_i\}}W_y(x_i,&space;X^l)." target="_blank"><img src="https://latex.codecogs.com/gif.latex?M(x_i)=W_{y_i}(x_i,&space;X^l)-\max_{y\in&space;Y\backslash\{y_i\}}W_y(x_i,&space;X^l)." title="M(x_i)=W_{y_i}(x_i, X^l)-\max_{y\in Y\backslash\{y_i\}}W_y(x_i, X^l)." /></a>
+
 That is, margin is a difference between the weight of an actual class and max weight among all other classes, except the actual one. Hence, negative margin means that classifiction algortihm makes an error on this object.
 
 Below is a margins plot for the iris dataset. Dots are colored from green to red, where green is largest positive margin and red - lowest negative.
