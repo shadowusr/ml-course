@@ -12,3 +12,6 @@ A collection of basic machine learning algorithms taught to students of the CS m
 - [STOLP](4%20-%20Selection%20of%20reference%20objects)
 
 [Metric classifiers comparison table](metric-algorithms-comparison.md)
+
+##### Bayesian classifiers
+- [Contour lines of the Gaussian distribution PDF](5%20-%20Contour%20lines%20of%20the%20Gaussian%20distribution%20PDF)
