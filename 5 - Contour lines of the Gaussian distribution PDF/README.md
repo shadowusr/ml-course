@@ -1,0 +1,36 @@
+# 5 - Contour lines of the Gaussian distribution PDF
+### Assignment objective
+- Generate a plot of contour lines of the normal distribution's probability density function and state corresponding density values.
+- Consider all edge cases.
+
+### Assignment implementation
+###### Gaussian distribution
+Normal distribution is a type of continuous probability distribution for multivariate random variables. It has two parameters: mean and variance.
+
+Let's recall what is probability density function. Essentially, it's a function which at any given point returns relative likelihood that the value of the random variable would equal that point. Usually PDF is used to specify a probability of a random variable falling within a particular range. Integral over entire space is equal to 1.
+
+Now the probability density function of the Gaussian distribution has the following form:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex={\displaystyle&space;f_{\mathbf&space;{X}&space;}(x_{1},\ldots&space;,x_{k})=&space;{\frac&space;{\exp&space;\left(&space;-{\frac{1}{2}}&space;({\mathbf&space;{x}&space;}-{\boldsymbol&space;{\mu&space;}})^{\mathrm&space;{T}&space;}&space;{\boldsymbol&space;{\Sigma&space;}}^{-1}&space;({\mathbf&space;{x}&space;}-{\boldsymbol&space;{\mu&space;}})&space;\right)}&space;{\sqrt&space;{(2\pi&space;)^{k}&space;|\boldsymbol&space;{\Sigma&space;}|}}&space;}&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\displaystyle&space;f_{\mathbf&space;{X}&space;}(x_{1},\ldots&space;,x_{k})=&space;{\frac&space;{\exp&space;\left(&space;-{\frac{1}{2}}&space;({\mathbf&space;{x}&space;}-{\boldsymbol&space;{\mu&space;}})^{\mathrm&space;{T}&space;}&space;{\boldsymbol&space;{\Sigma&space;}}^{-1}&space;({\mathbf&space;{x}&space;}-{\boldsymbol&space;{\mu&space;}})&space;\right)}&space;{\sqrt&space;{(2\pi&space;)^{k}&space;|\boldsymbol&space;{\Sigma&space;}|}}&space;}&space;}" title="{\displaystyle f_{\mathbf {X} }(x_{1},\ldots ,x_{k})= {\frac {\exp \left( -{\frac{1}{2}} ({\mathbf {x} }-{\boldsymbol {\mu }})^{\mathrm {T} } {\boldsymbol {\Sigma }}^{-1} ({\mathbf {x} }-{\boldsymbol {\mu }}) \right)} {\sqrt {(2\pi )^{k} |\boldsymbol {\Sigma }|}} } }" /></a>
+
+###### Contour lines
+What are contour lines of a function? Well, the function value at each point of a contour line is the same. Our task is to plot contour lines of the probability density function defined above.
+
+Below are 3D plots of PDF for different parameters alongside with contour lines.
+
+| ![](https://i.imgur.com/nhp9mfB.png) | ![](https://i.imgur.com/oR9n19A.png) |
+| - | - |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;1&space;&&space;1&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;1&space;&&space;1&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}" /></a> |
+| ![](https://i.imgur.com/5cIzQUI.png) | ![](https://i.imgur.com/qh5jVYV.png) |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;3&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;3&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;3&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;3&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix}" /></a> |
+
+And here heatmaps go:
+
+| ![](https://i.imgur.com/1MvI09C.png) | ![](https://i.imgur.com/CWPNAS7.png) |
+| - | - |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;1&space;&&space;1&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;1&space;&&space;1&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}" /></a> |
+| ![](https://i.imgur.com/Vl9U0jv.png) | ![](https://i.imgur.com/MfArXnQ.png) |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;3&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;3&space;&&space;0&space;\\&space;0&space;&&space;1&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;3&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix}&space;1&space;&&space;0&space;\\&space;0&space;&&space;3&space;\end{pmatrix}" title="\boldsymbol{\mu}=(0,0);\;\boldsymbol{\Sigma}=\begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix}" /></a> |
+
+###### Shiny
+The 3D plots are available at <a href="https://stre1ok.shinyapps.io/shiny/">Shiny</a>. Don't miss a chance to fiddle about with covariance matrices by yourself!
