@@ -15,3 +15,4 @@ A collection of basic machine learning algorithms taught to students of the CS m
 
 ##### Bayesian classifiers
 - [Contour lines of the Gaussian distribution PDF](5%20-%20Contour%20lines%20of%20the%20Gaussian%20distribution%20PDF)
+- [Naive normal bayesian classifier](6%20-%20Naive%20Bayes%20Classifier)
