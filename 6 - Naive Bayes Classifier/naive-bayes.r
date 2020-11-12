@@ -9,13 +9,13 @@ likelihood <- function(feature, expectation, deviation) {
 }
 
 # returns a probability of a given point to be in a given class
-getProbability <- function(dset, classesColumn, className, point) {
+getProbability <- function(dset, classesColumn, className, point, lambda) {
   classesCount <- 0
   featuresCount <- length(point)
   dsetLength <- dim(dset)[1]
   
   prior <- getPriorProbabilities(dset, classesColumn)[className]
-  lambda <- 1 # rep(1, classesCount)
+  # lambda <- 1 # rep(1, classesCount)
   
   expectations <- array(dim = featuresCount)
   for (i in 1:featuresCount) {
@@ -44,12 +44,12 @@ getProbability <- function(dset, classesColumn, className, point) {
   return (log(lambda * prior) + logOfLikelihood)
 }
 
-classify <- function(point) {
+classify <- function(point, lambdas) {
   classes <- unique(dset[, 3])
   classesCount <- length(classes)
   scores <- array(dim = classesCount)
   for (i in 1:classesCount) {
-    scores[i] <- getProbability(dset, 3, classes[i], point)
+    scores[i] <- getProbability(dset, 3, classes[i], point, lambdas[i])
   }
   return(classes[which.max(scores)])
 }
@@ -68,6 +68,8 @@ plot(dset[ ,1], dset[ ,2], pch=21, bg=c("green","blue")[dset[ ,3]])
 colors <- c("1" = "green", "2" = "blue")
 xs <- seq(from = -5, to = 6.2, by = 0.1)
 ys <- seq(from = -4.2, to = 8, by = 0.1)
+lambdas <- runif(2, min=1, max=100)
+print(lambdas)
 
 all <- length(xs) * length(ys)
 progress = 1
@@ -75,7 +77,7 @@ for (i in xs) {
   for (j in ys) {
     cat("\rProcessing point", progress, "of", all)
     progress <- progress + 1
-    result <- classify(c(i, j))
+    result <- classify(c(i, j), lambdas)
     points(i, j, col = colors[result], pch = 21)
   }
 }
