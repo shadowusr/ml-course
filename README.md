@@ -18,3 +18,6 @@ A collection of basic machine learning algorithms taught to students of the CS m
 - [Naive normal bayesian classifier](6%20-%20Naive%20Bayes%20Classifier)
 - [Plug-in algorithm](7%20-%20Plug-in%20algorithm)
 - [Linear Fisher's discriminant](8%20-%20Linear%20Fisher's%20discriminant)
+
+##### Linear classifiers
+- [SGD, Adaline and perceptron / Hebb's rule](9%20-%20Adaline%20and%20Hebb%27s%20rule)
