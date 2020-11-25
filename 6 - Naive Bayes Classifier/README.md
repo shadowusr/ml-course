@@ -92,10 +92,8 @@ sig1 <- matrix(c(2, 0.9, 0.9, 2), 2, 2)
 sig2 <- matrix(c(0.5, 0, 0, 2), 2, 2)
 ```
 
-| ![](https://i.imgur.com/ZyqtSDh.png) | ![](https://i.imgur.com/ZyqtSDh.png) |
+| ![](https://i.imgur.com/tlLJ2K5.png) | ![](https://i.imgur.com/UDctOZs.png) |
 | - | - |
-| λ = (1, 1) | λ = (27, 41) |
-| ![](https://i.imgur.com/YReVN47.png) | ![](https://i.imgur.com/52XOFwZ.png) |
-| λ = (32, 85) | λ = (93, 49) | 
+| ![](https://i.imgur.com/fdsms6g.png) | ![](https://i.imgur.com/h1Xzmme.png) | 
 
 Errors on this dataset: 16 (3,2%).
