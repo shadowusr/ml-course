@@ -113,3 +113,9 @@ Perceptron / Hebb's rule:
 | ![](https://i.imgur.com/5UwpYHh.png) | ![](https://i.imgur.com/e80JSo9.png) | ![](https://i.imgur.com/Av632t6.png) | ![](https://i.imgur.com/fOu62jG.png) |
 | - | - | - | - |
 | Step: 10 | Step: 50 | Step: 100 | Step: 500 |
+
+Comparison of loss decreasing over each step.
+
+| ![](https://i.imgur.com/7EjOvy9.png) | ![](https://i.imgur.com/zXR0JiB.png) |
+| - | - |
+| Adaline | Perceptron / Hebb's rule |
