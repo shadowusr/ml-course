@@ -87,3 +87,10 @@ plugInClassifier <- function(point, dset) {
   return(classes[which.max(scores)])
 }
 ```
+
+###### Formulas
+| ![](https://i.imgur.com/UymOiIg.jpg) | ![](https://i.imgur.com/4kBCCdj.jpg) |
+| - | - |
+
+###### Shiny
+The app is live on <a href="https://stre1ok.shinyapps.io/plug-in/">shinyapps.io</a>.
