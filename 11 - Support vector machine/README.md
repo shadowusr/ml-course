@@ -58,6 +58,7 @@ Now let's consider 3 different cases.
 ![](https://i.imgur.com/jCtnMNH.png)
 
 3. When we have a linearly non-separable dataset.
+
 | ![](https://i.imgur.com/8rRgLjW.png) | ![](https://i.imgur.com/twHxu5b.png) |
 | - | - |
 | Linear kernel | Guassian kernel |
