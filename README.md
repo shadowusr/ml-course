@@ -21,3 +21,5 @@ A collection of basic machine learning algorithms taught to students of the CS m
 
 ##### Linear classifiers
 - [SGD, Adaline and perceptron / Hebb's rule](9%20-%20Adaline%20and%20Hebb%27s%20rule)
+- [Logistic regression](10%20-%20Logistic%20regression)
+- [Support vector machine](11%20-%20Support%20vector%20machine)
