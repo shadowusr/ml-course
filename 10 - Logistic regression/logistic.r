@@ -1,16 +1,16 @@
 library(MASS)
 
 computeWeightsWithStochasticGradient <- function(dset, classes, lossFunction, updateRule) {
-  png(sprintf("sgd/astep-%03d.png", 1), width = 700, height = 700, unit = "px", pointsize = 20)
+  png(sprintf("sgd/astep-%03d.png", 1), width = 1522, height = 1784, unit = "px", pointsize = 20)
   # cat("Kernel:", kernelName, index, "of", length(kernels), "\n")
   #index <- index + 1
   
   #loo <- parzen_loo(iris[3:4], iris$Species, kernel, hs)
-  #plot(hs, loo, type="l", xlab="h", ylab="LOO")
+  # plot(hs, loo, type="l", xlab="h", ylab="LOO", )
   #points(hs[which.min(loo)], loo[which.min(loo)], pch = 19, col = "red")
   #text(hs[which.min(loo)], loo[which.min(loo)] + 0.05, paste("best:", hs[which.min(loo)]))
   
-  plot(dset[ ,1], dset[ ,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(gdset[ ,3])])
+  plot(dset[ ,1], dset[ ,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(gdset[ ,3])], main = "SGD step by step")
   dsetLength <- dim(dset)[1]
   featuresCount <- dim(dset)[2]
   
@@ -66,10 +66,11 @@ computeWeightsWithStochasticGradient <- function(dset, classes, lossFunction, up
     }
   }
   gsteps <<- gsteps+step
+  drawLine(w1, "red", 3)
   dev.off()
   # print(step)
   # Thanks, T. Orlova!
-  plot(xs, ys, type="l", col="red", xlab="step", ylab="loss", main = "Logistic regression")
+  #plot(xs, ys, type="l", col="red", xlab="step", ylab="loss", main = "Logistic regression")
   return(w)
 }
 
@@ -80,9 +81,16 @@ logisticRegressionLossFunction <- function(margin) log2(1 + exp(-margin))
 
 logisticRegressionUpdateRule <- function(w, learningRate, sample, class) w + learningRate * sample * class * sigmoid(-sum(w * sample) * class)
 
+adalineLossFunction <- function(margin) (margin - 1) ^ 2
 
-drawLine = function(w, color) {
-  abline(a = w[3] / w[2], b = -w[1] / w[2], lwd = 0.5, col = color)
+adalineUpdateRule <- function(w, learningRate, sample, class) w - learningRate * (sum(w * sample) - class) * sample 
+
+hebbLossFunction <- function(margin) max(-margin, 0)
+
+hebbUpdateRule <- function(w, learningRate, sample, class) w + learningRate * sample * class
+
+drawLine = function(w, color, width = 0.5) {
+  abline(a = w[3] / w[2], b = -w[1] / w[2], lwd = width, col = color)
 }
 
 # plot(c(0,2,3,4), c(0,2,2,1), type="l", xlab="h", ylab="Loss over steps", col="red", bg="black")
@@ -101,16 +109,49 @@ gdset <- dset
 w1 = computeWeightsWithStochasticGradient(dset[, c(1, 2, 4)], dset[, 3], logisticRegressionLossFunction, logisticRegressionUpdateRule)
 
 for (i in 1:dim(dset)[1]) {
-  if (sum(c(dset[i, 1:2], -1) * w1) * dset[i, 3] < 0) {
+  if (sum(c(-1, dset[i, 1:2]) * w1) * dset[i, 3] < 0) {
     errorsCount <- errorsCount + 1
   }
 }
 
-# print(errorsCount)
+print(errorsCount)
 
-# plot(dset[ ,1], dset[ ,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(dset[ ,3])])
+plot.new()
+title("Adaline - green\nHebb - blue\nLogistic regression - red")
+plot.window(c(1, 5), c(0, 4), asp = 1)
+points(dset[ ,1], dset[ ,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(dset[ ,3])], main = "Logistic regression classification map")
 
-# drawLine(w1, "darkgreen")
+drawLine(w1, "red", 3)
+
+# plot.window(c(2, 6), c(0, 4))
+
+w1 = computeWeightsWithStochasticGradient(dset[, c(1, 2, 4)], dset[, 3], adalineLossFunction, adalineUpdateRule)
+drawLine(w1, "green", 3)
+
+w1 = computeWeightsWithStochasticGradient(dset[, c(1, 2, 4)], dset[, 3], hebbLossFunction, hebbUpdateRule)
+drawLine(w1, "blue", 3)
+
+# Classification map:
+# colors <- c("1" = "green", "2" = "blue")
+# xs <- seq(from = -5, to = 7, by = 0.1)
+# ys <- seq(from = -6, to = 10, by = 0.1)
+# ## lambdas <- runif(2, min=1, max=100)
+# lambdas = c(1, 1)
+# print(lambdas)
+# 
+# all <- length(xs) * length(ys)
+# progress = 1
+# for (i in xs) {
+#   for (j in ys) {
+#     cat("\rProcessing point", progress, "of", all)
+#     progress <- progress + 1
+#     result <- sum(c( i, j, -1) * w1)
+#     res <- sign(result)
+#     points(i, j, col = adjustcolor(colors[res], abs(result)), pch = 21)
+#   }
+# }
+
+
 
 # iterationsCount <- 100
 # 

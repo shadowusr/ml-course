@@ -3,7 +3,7 @@
 - Train the logistic regression algorithm using SGD
 - Draw a plot, depicting the method in action
 - Depending on the value of the a posteriori probability, make a plot so that the higher the probability value, the brighter the color becomes
-- Demonstrate the operation of the algorithms implemented above on a single graph
+- Demonstrate the operation of the algorithms implemented above on a single plot
 ### Assignment implementation
 ###### Gradient descent
 The gradient descent technique is a powerful way of optimising stuff. Specifically, let's introduce the concept of a loss function: it's a function that takes all points from our dataset and our predicted values and returns some numeric characteristic of how bad our prediction was.
@@ -28,6 +28,13 @@ logisticRegressionLossFunction <- function(margin) log2(1 + exp(-margin))
 
 logisticRegressionUpdateRule <- function(w, learningRate, sample, class) w + learningRate * sample * class * sigmoid(-sum(w * sample) * class) 
 ```
+
+###### Logistic regression classifier
+Logistic regression classifier is, in fact, an optimal bayesian classifier. It is as simple as scalar product of weights vector and feature vector:
+```R
+result <- sum(c( i, j, -1) * w)
+```
+Here we had to introduce a constant artificial feature equal to -1. The sign of this expression determines a class to which this point belongs. 
 
 ###### SGD Algorithm
 1. Initialize weights with some random small numbers.
@@ -88,8 +95,14 @@ computeWeightsWithStochasticGradient <- function(dset, classes, lossFunction, up
 }
 ```
 
-![](https://i.imgur.com/9fMmFD7.png)
+
+| ![](https://i.imgur.com/GbpDuQh.png) | ![](https://i.imgur.com/5ziC7rA.png) |
+| - | - |
+| Point's saturation matches its posteriori probability. | Red line is a final line. |
 
 
 ###### Dependency between loss and step count
 ![](https://i.imgur.com/1CeySFD.png)
+
+###### Linear algorithms comparison plot
+![](https://i.imgur.com/XtLjdyN.png)
