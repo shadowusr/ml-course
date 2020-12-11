@@ -86,6 +86,6 @@ ldfClassifier <- function(point, dset) {
 ```
 
 ###### Classification map & borderline
-| ![](https://i.imgur.com/ZT8V3hl.png) | ![](https://i.imgur.com/ZJRamxB.png) |
+| <img src="https://i.imgur.com/ZT8V3hl.png" width="900"> | <img src="https://i.imgur.com/ZJRamxB.png" width="900"> |
 | - | - |
 | The LDF classification map. | The borderline. |
