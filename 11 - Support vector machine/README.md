@@ -66,8 +66,9 @@ Now let's consider 3 different cases.
 ###### How the C parameter affects the SVM
 In a SVM you are searching for two things: a hyperplane with the largest minimum margin, and a hyperplane that correctly separates as many instances as possible. The problem is that you will not always be able to get both things. The c parameter determines how great your desire is for the latter.
 
-| ![](https://i.imgur.com/eErCZK5.png) | ![](https://i.imgur.com/oacb0H7.png) | ![](https://i.imgur.com/2wYQ6Hb.png) | ![](https://i.imgur.com/wRnWrUw.png) |
-| - | - | - | - |
+| ![](https://i.imgur.com/eErCZK5.png) | ![](https://i.imgur.com/oacb0H7.png) |
+| - | - |
+| ![](https://i.imgur.com/2wYQ6Hb.png) | ![](https://i.imgur.com/wRnWrUw.png) |
 
 ###### ROC / AOC
 In order to plot the ROC curve we will use the following function, which accepts the dataset and weights vector:
