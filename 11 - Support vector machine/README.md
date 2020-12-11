@@ -62,3 +62,45 @@ Now let's consider 3 different cases.
 | ![](https://i.imgur.com/8rRgLjW.png) | ![](https://i.imgur.com/twHxu5b.png) |
 | - | - |
 | Linear kernel | Guassian kernel |
+
+###### How the C parameter affects the SVM
+In a SVM you are searching for two things: a hyperplane with the largest minimum margin, and a hyperplane that correctly separates as many instances as possible. The problem is that you will not always be able to get both things. The c parameter determines how great your desire is for the latter.
+
+| ![](https://i.imgur.com/eErCZK5.png) | ![](https://i.imgur.com/oacb0H7.png) | ![](https://i.imgur.com/2wYQ6Hb.png) | ![](https://i.imgur.com/wRnWrUw.png) |
+| - | - | - | - |
+
+###### ROC / AOC
+In order to plot the ROC curve we will use the following function, which accepts the dataset and weights vector:
+```R
+plotROCCurve <- function(dset, w) {
+  dsetLength <- dim(dset)[1]
+
+  d <- matrix(NA, dsetLength, 2)
+  
+  for (i in 1:dsetLength) {
+    d[i, ] <- c(i, sum(w * c(dset[i, 1:2], -1)))
+  }
+  
+  sorted <- dset[order(d[ ,2], decreasing = TRUE), 3]
+  
+  truePositive <- 0
+  falsePositive <- 0
+
+  result <- matrix(0, dsetLength+1, 2)
+  
+  for (i in 1:dsetLength) {
+    ans <- sorted[i]
+    if (ans == 1) {
+      truePositive <- truePositive + 1
+    } else {
+      falsePositive <- falsePositive + 1
+    }
+    result[i+1,] <- c(falsePositive, truePositive)
+  }
+  plot(result[, 1], result[, 2], type="l", xlab="False positive rate", ylab="True positive rate")
+}
+```
+Results:
+| ![](https://i.imgur.com/wy9rOY3.png) | ![](https://i.imgur.com/mY43XUV.png) |
+| - | - |
+| ![](https://i.imgur.com/cqNZNTo.png) | ![](https://i.imgur.com/YyPGcHu.png) |
