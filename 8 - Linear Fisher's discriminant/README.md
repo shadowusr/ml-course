@@ -84,3 +84,8 @@ ldfClassifier <- function(point, dset) {
   return(classes[which.max(scores)])
 }
 ```
+
+###### Classification map & borderline
+| ![](https://i.imgur.com/ZT8V3hl.png) | ![](https://i.imgur.com/ZJRamxB.png) |
+| - | - |
+| The LDF classification map. | The borderline. |
