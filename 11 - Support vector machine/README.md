@@ -105,3 +105,6 @@ Results:
 | ![](https://i.imgur.com/wy9rOY3.png) | ![](https://i.imgur.com/mY43XUV.png) |
 | - | - |
 | ![](https://i.imgur.com/cqNZNTo.png) | ![](https://i.imgur.com/YyPGcHu.png) |
+
+###### Shiny
+The SVM demo on shiny is available <a href="https://stre1ok.shinyapps.io/svm-demo/">here</a>.

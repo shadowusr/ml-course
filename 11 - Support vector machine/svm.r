@@ -1,3 +1,6 @@
+library(kernlab)
+library(MASS)
+
 drawLine = function(w, color, width = 0.5) {
   abline(a = w[3] / w[2], b = -w[1] / w[2], lwd = width, col = color, asp = 1)
 }
@@ -37,7 +40,7 @@ sig2 <- matrix(c(0.5, 0, 0, 2), 2, 2)
 dset1 <- mvrnorm(50, mu1, sig1)
 dset2 <- mvrnorm(50, mu2, sig2)
 dset <- rbind(cbind(dset1, 1),cbind(dset2, -1))
-dset <- cbind(dset, -1)
+# dset <- cbind(dset, -1)
 
 # m <- matrix(data = c(
 #   0, 0,
@@ -57,7 +60,7 @@ dset <- cbind(dset, -1)
 # ), ncol = 2, byrow = TRUE)
 # cl <- c(rep(1, 5), rep(-1, 8))
 
-library(kernlab)
+
 
 C <- 0.1
 
@@ -67,19 +70,19 @@ supportVectorIndices <- SVindex(svp)
 w <- colSums(coef(svp)[[1]] * dset[supportVectorIndices, 1:2])
 w[3] <- b(svp)
 
-# plot(dset[ ,1], dset[ ,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(dset[ ,3])])
+plot(dset[-supportVectorIndices ,1], dset[ -supportVectorIndices,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(dset[-supportVectorIndices ,3])])
 # plot(dset[-supportVectorIndices, 1], dset[-supportVectorIndices, 2], pch = 21, bg = "grey", main = "C = 0.1")
-# points(dset[supportVectorIndices, 1], dset[supportVectorIndices, 2], pch = 24, bg = "red")
-# drawLine(w, "red", width = 3)
+points(dset[supportVectorIndices, 1], dset[supportVectorIndices, 2], pch = 24, bg="red", col=c("1" = "green","-1" = "blue")[paste(dset[-supportVectorIndices ,3])])
+drawLine(w, "red", width = 3)
 
-plotROCCurve(dset, w)
+# plotROCCurve(dset, w)
 
 # svp <- ksvm(m,cl,type="C-svc")
 # plot(svp, data=as.matrix(dset[, 1:2]))
 # drawLine(w, "red")
 
 
-svp
+# svp
 
 
 
