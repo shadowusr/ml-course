@@ -42,7 +42,7 @@ function(input, output, session, ...) {
     w[3] <- b(svp)
     
     plot(dset[-supportVectorIndices ,1], dset[ -supportVectorIndices,2], pch=21, bg=c("1" = "green","-1" = "blue")[paste(dset[-supportVectorIndices ,3])], xlab="x", ylab="y", main = "SVM")
-    points(dset[supportVectorIndices, 1], dset[supportVectorIndices, 2], pch = 24, bg="red", col=c("1" = "green","-1" = "blue")[paste(dset[-supportVectorIndices ,3])])
+    points(dset[supportVectorIndices, 1], dset[supportVectorIndices, 2], pch = 24, bg="red", col=c("1" = "green","-1" = "blue")[paste(dset[supportVectorIndices ,3])])
     drawLine(w, "red", width = 3)
   })
   
